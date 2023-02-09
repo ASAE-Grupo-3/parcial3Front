@@ -59,27 +59,27 @@
       <div class="form-group row">
         <label for="name" class="col-form-label col-sm-2">Nombre</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.name" name="name" #name="ngModel">
+          <input type="text" class="form-control" [(ngModel)]="estudiante.nombres" name="name" #name="ngModel">
         </div>
       </div>
 
       <div class="form-group row">
         <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.lastName" name="apellido" #lastName="ngModel">
+          <input type="text" class="form-control" [(ngModel)]="estudiante.apellidos" name="apellido" #lastName="ngModel">
            </div>
       </div>
 
       <div class="form-group row">
         <label for="email" class="col-form-label col-sm-2">Email</label>
         <div class="col-sm-6">
-          <input type="email" class="form-control" [(ngModel)]="estudiante.email" name="email" #email="ngModel" >
+          <input type="email" class="form-control" [(ngModel)]="estudiante.correo" name="email" #email="ngModel" >
         </div>
       </div>
 
       <div class="form-group row">
         <div class="col-sm-6">
-          <button class="btn btn-primary" role="button" (click)='crearestudiante()' [disabled]="!clienteForm.form.valid" *ngIf="!estudiante.id else elseBlock">Crear</button>
+          <button class="btn btn-primary" role="button" (click)='crearestudiante()' [disabled]="!clienteForm.form.valid" *ngIf="!estudiante.idPersona else elseBlock">Crear</button>
           <ng-template #elseBlock>
             <button class="btn btn-primary" role="button" (click)='editarestudiante()' [disabled]="!clienteForm.form.valid">Actualizar</button>
           </ng-template>

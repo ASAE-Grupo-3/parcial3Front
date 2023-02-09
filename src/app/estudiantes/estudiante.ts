@@ -1,7 +1,11 @@
 export class estudiante {
-	id!: number;
-	name!: string;
-	lastName!: string;
-	email!: string;
-	createAt!: Date;
+	idPersona!: number;
+	noIdentificacion!: string;
+	tipoIdentificacion!: string;
+	nombres!: string;
+	apellidos!: string;
+	fechaIngreso!: Date;
+	correo!: string;
+	objDireccion!: [];
+	telefonos!: [];
 }

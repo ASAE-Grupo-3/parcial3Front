@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { estudiante } from './estudiante';
-import { ESTUDIANTES } from './estudiante.json';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
@@ -9,7 +8,7 @@ import { throwError } from 'rxjs';
 
 @Injectable()
 export class estudianteService {
-  private urlEndPoint: string = 'http://localhost:5000/api/Students';
+  private urlEndPoint: string = 'http://localhost:9090/api/estudiantes';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}

@@ -25,16 +25,16 @@
       </thead>
       <tbody>
         <tr *ngFor="let estudiante of estudiantes">
-          <td>{{estudiante.id}}</td>
-          <td>{{estudiante.name}}</td>
-          <td>{{estudiante.lastName}}</td>
-          <td>{{estudiante.email}}</td>
-          <td>{{estudiante.createAt}}</td>
+          <td>{{estudiante.idPersona}}</td>
+          <td>{{estudiante.nombres}}</td>
+          <td>{{estudiante.apellidos}}</td>
+          <td>{{estudiante.correo}}</td>
+          <td>{{estudiante.fechaIngreso}}</td>
           <td>
-            <button style="margin: 10px;" name="button" class="btn btn-warning" [routerLink]="['/estudiantes/form', estudiante.id]">
+            <button style="margin: 10px;" name="button" class="btn btn-warning" [routerLink]="['/estudiantes/form', estudiante.idPersona]">
               Editar
             </button>
-            <button (click)="EliminarEstudiante(estudiante.id)" class="btn btn-danger">Eliminar</button>
+            <button (click)="EliminarEstudiante(estudiante.idPersona)" class="btn btn-danger">Eliminar</button>
           </td>
         </tr>
       </tbody>

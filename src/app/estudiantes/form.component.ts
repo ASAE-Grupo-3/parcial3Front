@@ -37,11 +37,11 @@ export class FormComponent implements OnInit {
 
   public editarestudiante()
   {
-    this.estudianteService.edit(this.estudiante.id,this.estudiante).subscribe(
+    this.estudianteService.edit(this.estudiante.idPersona,this.estudiante).subscribe(
       respose =>
       {
         this.router.navigate(['/estudiantes']),
-        swal.fire('Estudiante Actualizado', `estudiante ${respose.name} fue actualizado!`, 'success');
+        swal.fire('Estudiante Actualizado', `estudiante ${respose.nombres} fue actualizado!`, 'success');
      },
      (err: HttpErrorResponse )=> {
                const map = new Map(Object.entries(err.error));
@@ -55,12 +55,12 @@ export class FormComponent implements OnInit {
 
   public crearestudiante()
   {
-    this.estudiante.createAt = new Date();
+    this.estudiante.fechaIngreso = new Date();
     this.estudianteService.create(this.estudiante).subscribe(
       respose =>
       {
         this.router.navigate(['/estudiantes']),
-        swal.fire('Nuevo estudiante', `estudiante ${respose.name} creado con éxito!`, 'success');
+        swal.fire('Nuevo estudiante', `estudiante ${respose.nombres} creado con éxito!`, 'success');
      },
      (err: HttpErrorResponse )=> {
                const map = new Map(Object.entries(err.error));
