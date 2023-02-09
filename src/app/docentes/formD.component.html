@@ -1,0 +1,132 @@
+<ul class="alert alert-danger" *ngIf="errores.length>0">
+  <li *ngFor="let err of errores">
+      {{err}}
+  </li>
+</ul>
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+    <!-- <form #clienteForm="ngForm">
+      <div class="form-group row">
+        <label for="name" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.name" name="name" required
+            minlength="4" #name="ngModel">
+          <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors?.['required']">
+              Nombre es requerido
+            </div>
+            <div *ngIf="name.errors?.['minlength']">
+              Nombre debe tener al menos 4 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.lastName" name="apellido" required
+            minlength="4" #lastName="ngModel">
+          <div class="alert alert-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <div *ngIf="lastName.errors?.['required']">
+              Apellido es requerido
+            </div>
+            <div *ngIf="lastName.errors?.['minlength']">
+              Apellido debe tener al menos 4 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-form-label col-sm-2">Email</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" [(ngModel)]="docente.email" name="email" #email="ngModel" required email
+            >
+          <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors?.['required']">
+              Email es requerido
+            </div>
+            <div *ngIf="email.errors?.['email']">
+              Email debe tener un formato válido
+            </div>
+          </div>
+        </div>
+      </div> -->
+<!--Validaciones Desactivadas-->
+      <form #clienteForm="ngForm">
+      <div class="form-group row">
+        <label for="name" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.nombres" name="name" #name="ngModel">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.apellidos" name="apellido" #lastName="ngModel">
+           </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipoIdentificacion" class="col-form-label col-sm-2">Tipo de Identificación</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.tipoIdentificacion" name="tipoIdentificacion" #tipoIdentificacion="ngModel" >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="noIdentificacion" class="col-form-label col-sm-2">No Identificación</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" [(ngModel)]="docente.noIdentificacion" name="noIdentificacion" #noIdentificacion="ngModel" >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="universidad" class="col-aform-label col-sm-2">universidad</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.universidad" name="universidad" #universidad="ngModel" >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="tipoDocente" class="col-form-label col-sm-2">Tipo de docente</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.tipoDocente" name="tipoDocente" #tipoDocente="ngModel" >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="salario" class="col-form-label col-sm-2">salario</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" [(ngModel)]="docente.salario" name="salario" #salario="ngModel" >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="asignaturas" class="col-form-label col-sm-2">asignaturas</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.asignaturas" name="asignaturas" #asignaturas="ngModel" >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='creardocente()' [disabled]="!clienteForm.form.valid" *ngIf="!docente.idPersona else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='editardocente()' [disabled]="!clienteForm.form.valid">Actualizar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
