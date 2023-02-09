@@ -70,13 +70,22 @@
            </div>
       </div>
 
-      <div class="form-group row">
+      <div class="">
         <label for="tipoIdentificacion" class="col-form-label col-sm-2">Tipo de Identificación</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" [(ngModel)]="docente.tipoIdentificacion" name="tipoIdentificacion" #tipoIdentificacion="ngModel" >
         </div>
       </div>
-
+      <div class="form-group row btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Seleccione un tipo de documento
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">CC</button>
+          <button class="dropdown-item" type="button">Pasaporte</button>
+          <button class="dropdown-item" type="button">TI</button>
+        </div>
+      </div>
 
       <div class="form-group row">
         <label for="noIdentificacion" class="col-form-label col-sm-2">No Identificación</label>

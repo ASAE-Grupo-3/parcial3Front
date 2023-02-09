@@ -8,7 +8,7 @@ import { throwError } from 'rxjs';
 
 @Injectable()
 export class docenteService {
-  private urlEndPoint: string = 'http://localhost:9090/api/docentes';
+  private urlEndPoint: string = 'http://localhost:5000/api/docentes';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}
