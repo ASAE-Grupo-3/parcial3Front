@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
+import { asignaturas } from '../Asignaturas/asignatura';
+import { asignaturaService } from '../Asignaturas/asignatura.service';
 
 
 @Component({
@@ -15,24 +17,21 @@ export class FormDComponent implements OnInit {
 
   public docente: docente = new docente;
   public titulo: String = 'Crear docente';
+  public listaasignaturas: asignaturas[] = [];
+  private objasignaturaService: asignaturaService;
+
   public errores: string[] = [];
 
-  constructor(private docenteService: docenteService, private router:Router, private activedRoute:ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.cargar();
+  constructor(objasignaturaService: asignaturaService ,private docenteService: docenteService, private router:Router, private activedRoute:ActivatedRoute)
+  {
+    this.objasignaturaService = objasignaturaService;
+    this.router = router;
   }
 
-  cargar():void{
-    this.activedRoute.params.subscribe(
-      e=> {
-        let id = e['id'];
-        if(id){
-          this.docenteService.getdocente(id).subscribe(es => this.docente = es)
-        }
-      }
-    )
-
+  ngOnInit(): void {
+    this.objasignaturaService
+    .getasignaturas()
+    .subscribe((asignaturas) => (this.listaasignaturas = asignaturas));
   }
 
   public editardocente()

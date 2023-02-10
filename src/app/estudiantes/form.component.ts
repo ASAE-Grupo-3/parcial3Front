@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
+import { map } from 'rxjs';
+import { telefono } from '../telefonos/telefono';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class FormComponent implements OnInit {
 
-  public estudiante: estudiante = new estudiante;
+  public estudiante: estudiante = new estudiante();
   public titulo: String = 'Crear estudiante';
   public errores: string[] = [];
 
@@ -23,12 +25,12 @@ export class FormComponent implements OnInit {
     this.cargar();
   }
 
-  cargar():void{
+  cargar():void {
     this.activedRoute.params.subscribe(
       e=> {
         let id = e['id'];
         if(id){
-          this.estudianteService.getestudiante(id).subscribe(es => this.estudiante = es)
+          this.estudianteService.getestudiante(id).subscribe(estudiante => this.estudiante = estudiante)
         }
       }
     )
@@ -66,11 +68,15 @@ export class FormComponent implements OnInit {
                const map = new Map(Object.entries(err.error));
                const vector= Array.from(map.values());
                this.errores =vector as string[];
-               console.error('Código del error desde el backend: ' + err.status);                  
+               console.error('Código del error desde el backend: ' + err.status);
              }
 
     )
-
   }
 
+  nuevoTelefono(telefonos: telefono[]){
+    const map = new Map(Object.entries(telefonos));
+    const vector = Array.from(map.values());
+    Object.assign(this.estudiante.telefonos,vector[0]);
+  }
 }

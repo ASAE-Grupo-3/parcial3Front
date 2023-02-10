@@ -3,7 +3,7 @@
       {{err}}
   </li>
 </ul>
-<div class="card bg-dark text-white">
+<div class="card bg-dark text-white container">
   <div class="card-header">{{ titulo }}</div>
   <div class="card-body">
     <!-- <form #clienteForm="ngForm">
@@ -56,6 +56,21 @@
       </div> -->
 <!--Validaciones Desactivadas-->
       <form #clienteForm="ngForm">
+
+      <div class="form-group row">
+        <label for="noIdentificacion" class="col-form-label col-sm-2">Numero de Identificacion</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="estudiante.noIdentificacion" name="noIdentificacion" #noIdentificacion="ngModel">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipoIdentificacion" class="col-form-label col-sm-2">Tipo de Identificacion</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="estudiante.tipoIdentificacion" name="noIdentificacion" #noIdentificacion="ngModel">
+        </div>
+      </div>
+
       <div class="form-group row">
         <label for="name" class="col-form-label col-sm-2">Nombre</label>
         <div class="col-sm-6">
@@ -77,6 +92,9 @@
         </div>
       </div>
 
+      <app-form-direccion [prmDireccion]="estudiante.objDireccion"></app-form-direccion>
+      <app-form-telefonos [prmTelefono]="estudiante.telefonos" (newTelefono)="nuevoTelefono($event)"></app-form-telefonos>
+
       <div class="form-group row">
         <div class="col-sm-6">
           <button class="btn btn-primary" role="button" (click)='crearestudiante()' [disabled]="!clienteForm.form.valid" *ngIf="!estudiante.idPersona else elseBlock">Crear</button>
@@ -86,6 +104,5 @@
         </div>
       </div>
     </form>
-
   </div>
 </div>

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { estudiante } from './estudiante';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
+import { direccion } from '../direcciones/direccion';
 
 @Injectable()
 export class estudianteService {
-  private urlEndPoint: string = 'http://localhost:9090/api/estudiantes';
+  private urlEndPoint: string = 'http://localhost:5000/api/estudiantes';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}
@@ -18,7 +19,18 @@ export class estudianteService {
   }
 
   getestudiante(id: number): Observable<estudiante> {
-    return this.http.get<estudiante>(this.urlEndPoint + '/' + id);
+    return this.http.get<estudiante>(this.urlEndPoint + '/' + id).pipe(
+      catchError(
+        e => {
+          if (e.status == 400) {
+            return throwError(e);
+          }
+          console.error(e.error.mensaje);
+          swal.fire('Error al consultar estudiante',e.error.mensaje,'error');
+          return throwError(e);
+        }
+      )
+    );
   }
 
   create(estudiante: estudiante): Observable<estudiante> {
@@ -39,7 +51,6 @@ export class estudianteService {
   }
 
   edit(id: number, estudiante: estudiante): Observable<estudiante> {
-    console.log(this.urlEndPoint + id, estudiante);
     return this.http.put<estudiante>(this.urlEndPoint + '/' + id, estudiante, {
       headers: this.httpHeaders,
     }).pipe(
