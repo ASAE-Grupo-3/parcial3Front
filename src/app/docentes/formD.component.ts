@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
-import { asignaturas } from '../Asignaturas/asignatura';
+import { Asignatura } from '../Asignaturas/asignatura';
 import { asignaturaService } from '../Asignaturas/asignatura.service';
 
 
@@ -17,7 +17,7 @@ export class FormDComponent implements OnInit {
 
   public docente: docente = new docente;
   public titulo: String = 'Crear docente';
-  public listaasignaturas: asignaturas[] = [];
+  public listaasignaturas: Asignatura[] = [];
   private objasignaturaService: asignaturaService;
 
   public errores: string[] = [];
