@@ -95,7 +95,7 @@
       <app-form-direccion [prmDireccion]="estudiante.objDireccion"></app-form-direccion>
       <app-form-telefonos [prmTelefono]="estudiante.telefonos" (newTelefono)="nuevoTelefono($event)"></app-form-telefonos>
 
-      <div class="form-group row">
+      <div class="buttons form-group row">
         <div class="col-sm-6">
           <button class="btn btn-primary" role="button" (click)='crearestudiante()' [disabled]="!clienteForm.form.valid" *ngIf="!estudiante.idPersona else elseBlock">Crear</button>
           <ng-template #elseBlock>

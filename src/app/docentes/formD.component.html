@@ -112,7 +112,7 @@
         <label for="selectedValue" class="col-form-label col-sm-2">Asignatura</label>
         <div class="col-sm-6">
             <select class="form-control">
-                <option *ngFor="let asignatura of listaasignaturas; let index = index" [ngValue]="asignatura">{{asignatura.nombre}}
+                <option *ngFor="let asignatura of listaasignaturas; let index = index" [ngValue]="docente.asignaturas">{{asignatura.nombre}}
             </select>
         </div>
       </div>
@@ -128,6 +128,5 @@
         </div>
       </div>
     </form>
-
   </div>
 </div>

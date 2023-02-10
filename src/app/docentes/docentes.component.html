@@ -40,11 +40,7 @@
           <td>
             <p *ngFor="let asignatura of docente.asignaturas">{{asignatura.nombre}}</p>
           </td>
-
           <td>
-            <button style="margin: 10px;" name="button" class="btn btn-warning" routerLink="['/docentes/form', docente.idPersona]">
-              Editar
-            </button>
             <button (click)="Eliminardocente(docente.idPersona)" class="btn btn-danger">Eliminar</button>
           </td>
         </tr>
