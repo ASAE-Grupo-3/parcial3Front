@@ -39,7 +39,6 @@ export class asignaturaService {
   }
 
   edit(id: number, asignatura: asignaturas): Observable<asignaturas> {
-    console.log(this.urlEndPoint + id, asignatura);
     return this.http.put<asignaturas>(this.urlEndPoint + '/' + id, asignatura, {
       headers: this.httpHeaders,
     }).pipe(
