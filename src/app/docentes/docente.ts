@@ -1,4 +1,4 @@
-import { asignaturas } from "../Asignaturas/asignatura";
+import { Asignatura } from "../Asignaturas/asignatura";
 
 export class docente {
 	idPersona!: number;
@@ -9,5 +9,5 @@ export class docente {
 	universidad!: string;
 	tipoDocente!: string;
 	salario!: number;
-	asignaturas!: asignaturas [];
+	asignaturas!: Asignatura [];
 }
