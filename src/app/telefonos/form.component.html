@@ -1,0 +1,26 @@
+<fieldset>
+  <div class="telefono card bg-light">
+    <div class="card-header">
+      <h2 class="text-dark">Telefonos</h2>
+      <button class="btn btn-primary" (click)="addTelefono()">Agregar telefono</button>
+    </div>
+
+    <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value;">
+      <ng-container>
+        <div class="form-group row">
+          <label for="telefono" class="col-form-label col-sm-2 text-dark">Numero</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" (blur)="saveChanges()" [(ngModel)]="telefono.numero" name="telefono" #telefono="ngModel">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="telefono" class="col-form-label col-sm-2 text-dark">Telefono</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" (blur)="saveChanges()" [(ngModel)]="telefono.tipo" name="telefono" #telefono="ngModel">
+          </div>
+        </div>
+        <hr class="my-4">
+      </ng-container>
+    </div>
+  </div>
+</fieldset>
