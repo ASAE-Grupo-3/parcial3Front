@@ -2,6 +2,24 @@
   <div class="form-group row">
     <label for="calle" class="col-form-label col-sm-2">Calle</label>
     <div class="col-sm-6">
+      <input type="text" class="form-control" [(ngModel)]="direccion.calle" #calle="ngModel" >
+
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="localidad" class="col-form-label col-sm-2">Localidad</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" [(ngModel)]="direccion.localidad" name="localidad" #localidad="ngModel" >
+
+    </div>
+  </div>
+</fieldset>
+
+<!--
+<fieldset>
+  <div class="form-group row">
+    <label for="calle" class="col-form-label col-sm-2">Calle</label>
+    <div class="col-sm-6">
       <input type="text" class="form-control" [(ngModel)]="direccion.calle" #calle="ngModel" required minlength="6" maxlength="24">
       <div class="alert alert-danger" *ngIf="calle.invalid && (calle.dirty || calle.touched)">
         <div *ngIf="calle.errors?.['required']">
@@ -28,3 +46,6 @@
     </div>
   </div>
 </fieldset>
+
+
+-->
