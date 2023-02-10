@@ -9,11 +9,11 @@
             <button class="btn btn-rounded btn-warning" type="button" [routerLink]="['/cursos/form']">
                 Crear curso
             </button>  
-            <button class="btn btn-rounded btn-warning mx-2" type="button" [routerLink]="['/cursos/form']">
+            <button class="btn btn-rounded btn-warning mx-2" type="button" (click)="consultar()">
                 Consultar curso con docentes y asignatura
             </button>  
             
-            <input type="number" class="btn btn-rounded btn-light mx-2" name="periodo">
+            <input type="number" class="btn btn-rounded btn-light mx-2" name="idCurso" [(ngModel)]="idCurso" required>
 
             <div *ngIf="cursos?.length==0" class="alert alert-info">
                 No hay registros en la base de datos

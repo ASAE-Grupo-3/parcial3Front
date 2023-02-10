@@ -21,6 +21,36 @@ export class CursosComponent implements OnInit{
     });
   }
   ngOnInit(): void {
+    //this.cursoService.getCurso()
+  }
+  idCurso!:number;
+  consultar(){
+    if (this.idCurso==undefined) {
+      swal.fire('Información', `No se ingreso un id de curso a buscar.`, 'warning');
+    }else{
+      this.cursoService.getcurso(this.idCurso).subscribe((result)=>{
+        console.log(result);
+        var curso:Curso = result;
+        var mensaje = "***Información del Curso***<br>";
+        mensaje += "Id Curso: " + result.idCurso + "<br>";
+        mensaje += "Nombre Curso: " + result.nombre + "";
+        mensaje += "Periodo: " + result.periodo + "";
+        mensaje += "Nombre Curso: " + result.nombre + "<br>";
+        mensaje += "***Información de la Asignatura***<br>";
+        mensaje += "Id Asignatura: " + result.objAsignatura.idAsignatura + "<br>";
+        mensaje += "Nombre Curso: " + result.nombre + "<br>";
+
+
+        swal.fire('Resultado',mensaje);
+      },
+      (error)=>{
+          if (error.status==404) {
+            swal.fire('Error', error.error.mensaje, 'error');
+          }
+      });
+    }
+    
+    
     
   }
   /*
