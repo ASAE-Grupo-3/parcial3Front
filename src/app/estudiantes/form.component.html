@@ -6,7 +6,6 @@
 <div class="card bg-dark text-white container">
   <div class="card-header display-4">{{ titulo }}</div>
   <div class="card-body">
-    <!--
       <form #clienteForm="ngForm">
       <div class="form-group row">
         <label for="noIdentificacion" class="col-form-label col-sm-2">Número de identificación</label>
@@ -91,59 +90,6 @@
           <button class="btn btn-info w-100 p-3 font-weight-bold text-uppercase" role="button" (click)='crearestudiante()' [disabled]="!clienteForm.form.valid" *ngIf="!estudiante.idPersona else elseBlock">Crear estudiante</button>
           <ng-template #elseBlock>
             <button class="btn btn-info w-100 p-3 font-weight-bold text-uppercase" role="button" (click)='editarestudiante()' [disabled]="!clienteForm.form.valid">Actualizar</button>
-          </ng-template>
-        </div>
-      </div>
-    </form>
-
-
--->
-    <form>
-      <div class="form-group row">
-        <label for="noIdentificacion" class="col-form-label col-sm-2">Número de identificación</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.noIdentificacion" name="noIdentificacion" >
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="tipoIdentificacion" class="col-form-label col-sm-2">Tipo de identificación</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.tipoIdentificacion" >
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="name" class="col-form-label col-sm-2">Nombre</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.nombres">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.apellidos" >
-
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="email" class="col-form-label col-sm-2">Email</label>
-        <div class="col-sm-6">
-          <input type="email" class="form-control" [(ngModel)]="estudiante.correo" name="email" #email="ngModel" >
-
-        </div>
-      </div>
-
-      <app-form-direccion [prmDireccion]="estudiante.objDireccion" required></app-form-direccion>
-      <app-form-telefonos [prmTelefono]="estudiante.telefonos" (newTelefono)="nuevoTelefono($event)"></app-form-telefonos>
-
-      <div class="buttons form-group">
-        <div>
-          <button class="btn btn-info w-100 p-3 font-weight-bold text-uppercase" role="button" (click)='crearestudiante()'  *ngIf="!estudiante.idPersona else elseBlock">Crear estudiante</button>
-          <ng-template #elseBlock>
-            <button class="btn btn-info w-100 p-3 font-weight-bold text-uppercase" role="button" (click)='editarestudiante()' >Actualizar</button>
           </ng-template>
         </div>
       </div>

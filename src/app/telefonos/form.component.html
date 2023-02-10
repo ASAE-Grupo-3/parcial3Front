@@ -10,40 +10,6 @@
         <div class="form-group row">
           <label for="numero" class="col-form-label col-sm-2 text-dark">Número</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" (blur)="saveChanges()" [(ngModel)]="telefono.numero" name="numero" #numero="ngModel">
-
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="tipo" class="col-form-label col-sm-2 text-dark">Tipo</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" (blur)="saveChanges()" [(ngModel)]="telefono.tipo" name="tipo" required minlength="4" maxlength="25" #tipo="ngModel">
-
-          </div>
-        </div>
-        <hr class="my-4">
-      </ng-container>
-    </div>
-
-    <div class="alert alert-warning" *ngIf="hayNumeroDuplicado()">
-      Hay números dupicados
-    </div>
-  </div>
-</fieldset>
-
-<!--
-  <fieldset>
-  <div class="telefono card bg-light">
-    <div class="card-header">
-      <h2 class="text-dark">Telefonos</h2>
-      <button class="btn btn-primary" (click)="addTelefono()">Agregar telefono</button>
-    </div>
-
-    <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value;">
-      <ng-container>
-        <div class="form-group row">
-          <label for="numero" class="col-form-label col-sm-2 text-dark">Número</label>
-          <div class="col-sm-6">
             <input type="text" class="form-control" (blur)="saveChanges()" [(ngModel)]="telefono.numero" name="numero" #numero="ngModel" required minlength="5" maxlength="20">
             <div class="alert alert-danger" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
               <div *ngIf="numero.errors?.['required']">
@@ -78,4 +44,3 @@
     </div>
   </div>
 </fieldset>
--->
