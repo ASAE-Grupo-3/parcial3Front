@@ -25,7 +25,7 @@ import { FormComponentTelefonos } from './telefonos/form.component';
 import { asignaturaService } from './Asignaturas/asignatura.service';
 
 const routes: Routes = [
-    {path: '', redirectTo: '/estudiantes', pathMatch: 'full'},
+    {path: '', redirectTo: '/docentes', pathMatch: 'full'},
     {path: 'directivas', component: DirectivaComponent},
     {path: 'estudiantes/form', component: FormComponent},
     {path: 'estudiantes', component: estudiantesComponent},
