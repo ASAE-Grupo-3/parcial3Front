@@ -41,6 +41,11 @@ export class FormComponentTelefonos implements OnInit {
     }));
   }
 
+  deletesTelefono(id: number) {
+    const telefonos = this.form.controls['telefonos'] as FormArray;
+    telefonos.removeAt(id);
+  }
+
   hayNumeroDuplicado() {
       const telefonos = this.form.get("telefonos")?.value;
       const numeros = telefonos.map((telefono: telefono) => telefono.numero?.trim());

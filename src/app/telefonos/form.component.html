@@ -5,7 +5,7 @@
       <button class="btn btn-primary" (click)="addTelefono()">Agregar telefono</button>
     </div>
 
-    <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value;">
+    <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value; let i = index">
       <ng-container>
         <div class="form-group row">
           <label for="numero" class="col-form-label col-sm-2 text-dark">Número</label>
@@ -69,6 +69,7 @@
             </div>
           </div>
         </div>
+        <div class="btn btn-danger" (click)="deletesTelefono(i)">Eliminar</div>
         <hr class="my-4">
       </ng-container>
     </div>
