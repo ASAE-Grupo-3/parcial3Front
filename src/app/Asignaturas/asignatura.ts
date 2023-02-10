@@ -1,7 +1,7 @@
 import { docente } from "../docentes/docente";
 
-export class asignaturas {
+export class Asignatura {
 	idAsignatura!: number;
 	nombre!: string;
-  docentes!: docente [];
+  	docentes!: docente [];
 }

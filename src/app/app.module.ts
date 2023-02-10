@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './estudiantes/form.component';
 import { FormDComponent } from './docentes/formD.component';
 import { FormsModule } from '@angular/forms';
+import { CursosComponent } from './cursos/cursos.component';
+import { FormCursoComponent } from './cursos/form-curso.component';
 import { DireccionesComponent } from './direcciones/direcciones.component';
 import { TelefonosComponent } from './telefonos/telefonos.component';
 import { FormComponentDirecciones } from './direcciones/form.component';
@@ -30,6 +32,8 @@ const routes: Routes = [
     {path: 'estudiantes/form/:id', component: FormComponent},
     {path: 'docentes/form', component: FormDComponent},
     {path: 'docentes', component: docentesComponent},
+    {path: 'cursos', component: CursosComponent},
+    {path: 'cursos/form', component: FormCursoComponent},
   ];
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ const routes: Routes = [
     FormComponentDirecciones,
     FormComponentTelefonos,
     FormDComponent,
+    CursosComponent,
+    FormCursoComponent,
     docentesComponent
   ],
   imports: [
