@@ -26,7 +26,7 @@ export class CursoService {
     return this.http
       .post<Curso>(this.urlEndPoint, curso, {
         headers: this.httpHeaders,
-      })
+      }) 
       .pipe(
         catchError((e) => {
           if (e.status == 400) {
