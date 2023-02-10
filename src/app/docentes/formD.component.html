@@ -6,12 +6,14 @@
 <div class="card bg-dark text-white">
   <div class="card-header">{{ titulo }}</div>
   <div class="card-body">
-    <!-- <form #clienteForm="ngForm">
+<!--Validaciones Activadas-->
+
+    <form #clienteForm="ngForm">
       <div class="form-group row">
         <label for="name" class="col-form-label col-sm-2">Nombre</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="docente.name" name="name" required
-            minlength="4" #name="ngModel">
+          <input type="text" class="form-control" [(ngModel)]="docente.nombres" name="name" required
+            minlength="4" maxlength="49" #name="ngModel">
           <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
             <div *ngIf="name.errors?.['required']">
               Nombre es requerido
@@ -26,8 +28,8 @@
       <div class="form-group row">
         <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="docente.lastName" name="apellido" required
-            minlength="4" #lastName="ngModel">
+          <input type="text" class="form-control" [(ngModel)]="docente.apellidos" name="apellido" required
+            minlength="4" maxlength="49" #lastName="ngModel">
           <div class="alert alert-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
             <div *ngIf="lastName.errors?.['required']">
               Apellido es requerido
@@ -40,21 +42,98 @@
       </div>
 
       <div class="form-group row">
-        <label for="email" class="col-form-label col-sm-2">Email</label>
+        <label for="tipoIdentificacion" class="col-form-label col-sm-2">Tipo de identificación</label>
         <div class="col-sm-6">
-          <input type="email" class="form-control" [(ngModel)]="docente.email" name="email" #email="ngModel" required email
-            >
-          <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-            <div *ngIf="email.errors?.['required']">
-              Email es requerido
-            </div>
-            <div *ngIf="email.errors?.['email']">
-              Email debe tener un formato válido
+          <input type="text" class="form-control" [(ngModel)]="docente.tipoIdentificacion" required name="tipoIdentificacion" #tipoIdentificacion="ngModel">
+          <div class="alert alert-danger" *ngIf="tipoIdentificacion.invalid && (tipoIdentificacion.dirty || tipoIdentificacion.touched)">
+            <div *ngIf="tipoIdentificacion.errors?.['required']">
+              Tipo de identificación es requerido
             </div>
           </div>
         </div>
-      </div> -->
-<!--Validaciones Desactivadas-->
+      </div>
+
+      <div class="form-group row">
+        <label for="noIdentificacion" class="col-form-label col-sm-2">Número de identificación</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.noIdentificacion" name="noIdentificacion" required minlength="4" maxlength="49" #noIdentificacion="ngModel">
+          <div class="alert alert-danger" *ngIf="noIdentificacion.invalid && (noIdentificacion.dirty || noIdentificacion.touched)">
+            <div *ngIf="noIdentificacion.errors?.['required']">
+              Número de identificación es requerido
+            </div>
+            <div *ngIf="noIdentificacion.errors?.['minlength'] || noIdentificacion.errors?.['maxlength']">
+              Número de identificación debe tener entre 4 y 50 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="universidad" class="col-form-label col-sm-2">Universidad</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.universidad" required minlength="4" maxlength="49" name="universidad" #universidad="ngModel">
+          <div class="alert alert-danger" *ngIf="universidad.invalid && (universidad.dirty || universidad.touched)">
+            <div *ngIf="universidad.errors?.['required']">
+              Tipo de identificación es requerido
+            </div>
+            <div *ngIf="universidad.errors?.['minlength'] || universidad.errors?.['maxlength']">
+              Tipo de identificación debe tener entre 4 y 50 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="salario" class="col-form-label col-sm-2">Salario</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" [(ngModel)]="docente.salario" required min="0" name="salario" #salario="ngModel">
+          <div class="alert alert-danger" *ngIf="salario.invalid && (salario.dirty || salario.touched)">
+            <div *ngIf="salario.errors?.['required']">
+              Tipo de identificación es requerido
+            </div>
+            <div *ngIf="salario.errors?.['minlength'] || salario.errors?.['min']">
+              El salario debe ser positivo
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipoDocente" class="col-form-label col-sm-2">Tipo Docente</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="docente.tipoDocente" required minlength="4" maxlength="49" name="tipoDocente" #tipoDocente="ngModel">
+          <div class="alert alert-danger" *ngIf="tipoDocente.invalid && (tipoDocente.dirty || tipoDocente.touched)">
+            <div *ngIf="tipoDocente.errors?.['required']">
+              Tipo de identificación es requerido
+            </div>
+            <div *ngIf="tipoDocente.errors?.['minlength'] || tipoDocente.errors?.['maxlength']">
+              Tipo de identificación debe tener entre 4 y 50 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="selectedValue" class="col-form-label col-sm-2">Asignatura</label>
+        <div class="col-sm-6">
+            <select class="form-control">
+                <option *ngFor="let asignatura of listaasignaturas; let index = index" [ngValue]="docente.asignaturas">{{asignatura.nombre}}
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='creardocente()' [disabled]="!clienteForm.form.valid" *ngIf="!docente.idPersona else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='editardocente()' [disabled]="!clienteForm.form.valid">Actualizar</button>
+          </ng-template>
+        </div>
+      </div>
+
+
+<!--Validaciones No Activadas-->
+<!--
       <form #clienteForm="ngForm">
       <div class="form-group row">
         <label for="name" class="col-form-label col-sm-2">Nombre</label>
@@ -117,8 +196,6 @@
         </div>
       </div>
 
-
-
       <div class="form-group row">
         <div class="col-sm-6">
           <button class="btn btn-primary" role="button" (click)='creardocente()' [disabled]="!clienteForm.form.valid" *ngIf="!docente.idPersona else elseBlock">Crear</button>
@@ -127,6 +204,7 @@
           </ng-template>
         </div>
       </div>
+-->
     </form>
   </div>
 </div>

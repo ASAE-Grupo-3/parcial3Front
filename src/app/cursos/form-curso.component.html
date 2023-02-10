@@ -9,15 +9,8 @@
         <div class="card-header">{{ titulo }}</div>
         <div class="card-body">
             <!--Formulario No Validado-->
-            <!--
+<!--
             <form>
-                <div class="form-group row">
-                    <label for="idCurso" class="col-form-label col-sm-2">Id Curso</label>
-                    <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.idCurso" name="idCurso">
-                    </div>
-                </div>
-                
                 <div class="form-group row">
                     <label for="nombre" class="col-form-label col-sm-2">Nombre Curso</label>
                     <div class="col-sm-6">
@@ -26,43 +19,33 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="identificacion" class="col-form-label col-sm-2">Periodo Curso</label>
+                    <label for="periodo" class="col-form-label col-sm-2">Periodo Curso</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.periodo" name="identificacion">
+                        <input type="number" class="form-control" [(ngModel)]="curso.periodo" name="periodo">
                     </div>
-                </div>
+                  </div>
 
                 <div class="form-group row">
-                    <label for="identificacion" class="col-form-label col-sm-2">Id Asignatura</label>
+                    <label for="selectedValue" class="col-form-label col-sm-2">Asignatura</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.nombre" name="identificacion">
-                    </div>
-                </div>
+                        <select class="form-control"
+                            (ngModelChange)="selectChange($event)" [(ngModel)]="selectedValue" name="selectedValue">
+                            <option *ngFor="let tipo of asignaturas; let index = index" [ngValue]="tipo.idAsignatura">
+                                {{tipo.nombre}}</option>
 
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <button class="btn btn-primary" role="button" (click)='crearcurso()'>Crear</button>
+                        </select>
                     </div>
                 </div>
+                <div class="form-group row">
+                  <div class="col-sm-6">
+                      <button class="btn btn-primary" role="button" (click)='crearcurso()'>Crear</button>
+                  </div>
+
+              </div>
             </form>
-            -->
-
+-->
+            <!--Formulario Validado-->
             <form #cursoForm="ngForm">
-                <!--
-                <div class="form-group row">
-                    <label for="idCurso" class="col-form-label col-sm-2">Id Curso</label>
-                    <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.idCurso" name="idCurso" required
-                        #idCurso="ngModel">
-
-                        <div class="alert alert-danger" *ngIf="idCurso.invalid && (idCurso.dirty || idCurso.touched)">
-                            <div *ngIf="idCurso?.errors?.['required']">
-                                Id Curso es requerido
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
                 <div class="form-group row">
                     <label for="nombre" class="col-form-label col-sm-2">Nombre Curso</label>
                     <div class="col-sm-6">
@@ -93,22 +76,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!--
-                <div class="form-group row">
-                    <label for="idAsignatura" class="col-form-label col-sm-2">Id Asignatura</label>
-                    <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.objAsignatura.idAsignatura" name="idAsignatura" required
-                        #idAsignatura="ngModel">
-
-                        <div class="alert alert-danger" *ngIf="idAsignatura.invalid && (idAsignatura.dirty || idAsignatura.touched)">
-                            <div *ngIf="idAsignatura?.errors?.['required']">
-                                Id Asignatura es requerido
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
 
                 <div class="form-group row">
                     <label for="selectedValue" class="col-form-label col-sm-2">Asignatura</label>
@@ -117,127 +84,18 @@
                             (ngModelChange)="selectChange($event)" [(ngModel)]="selectedValue" name="selectedValue">
                             <option *ngFor="let tipo of asignaturas; let index = index" [ngValue]="tipo.idAsignatura">
                                 {{tipo.nombre}}</option>
-                                
+
                         </select>
                     </div>
-
                 </div>
 
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <button class="btn btn-primary" role="button" (click)='crearcurso()' [disabled]="!cursoForm.form.valid">Crear</button>
                     </div>
-                    
+
                 </div>
             </form>
-            
-            <!--Formulario Validado-->
-            <!--
-            <form #cursoForm="ngForm">
-                <div class="form-group row">
-                    <label for="codigo" class="col-form-label col-sm-2">Codigo</label>
-                    <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.codigo" name="codigo" required
-                            #codigo="ngModel">
-                        <div class="alert alert-danger" *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
-                            <div *ngIf="codigo?.errors?.['required']">
-                                Codigo es requerido
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="selectedValue" class="col-form-label col-sm-2">Tipo Identificación</label>
-                    <div class="col-sm-6">
-                        <select class="form-control"
-                            (ngModelChange)="selectChange($event)" [(ngModel)]="selectedValue" name="selectedValue">
-                            <option *ngFor="let tipo of listOptions; let index = index" [ngValue]="tipo.id">
-                                {{tipo.name}}</option>
-                                
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="form-group row">
-                    <label for="identificacion" class="col-form-label col-sm-2">Identificación</label>
-                    <div class="col-sm-6">
-                        <input type="number" class="form-control" [(ngModel)]="curso.identificacion"
-                            name="identificacion" required #id="ngModel">
-                        <div class="alert alert-danger" *ngIf="id.invalid && (id.dirty || id.touched)">
-                            <div *ngIf="id?.errors?.['required']">
-                                Identificación es requerido
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" [(ngModel)]="curso.nombre" name="nombre" required
-                            minlength="4" maxlength="20" #nombre="ngModel">
-                        <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
-                            <div *ngIf="nombre?.errors?.['required']">
-                                Nombre es requerido
-                            </div>
-                            <div *ngIf="nombre?.errors?.['minlength']">
-                                Nombre debe tener al menos 4 caracteres
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                    <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" [(ngModel)]="curso.apellido" name="apellido"
-                            required minlength="4" maxlength="20" #apellido="ngModel">
-                        <div class="alert alert-danger"
-                            *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
-                            <div *ngIf="apellido?.errors?.['required']">
-                                Apellido es requerido
-                            </div>
-                            <div *ngIf="apellido?.errors?.['minlength']">
-                                Apellido debe tener al menos 4 caracteres
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="correoInstitucional" class="col-form-label col-sm-2">Correo Institucional</label>
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" [(ngModel)]="curso.correoInstitucional"
-                            name="correoInstitucional" required email #email="ngModel">
-                        <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-                            <div *ngIf="email?.errors?.['required']">
-                                Email es requerido
-                            </div>
-                            <div *ngIf="email?.errors?.['email']">
-                                Email debe tener un formato válido
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <button class="btn btn-primary" role="button" (click)='crearcurso()' *ngIf="buttonCrear==true else elseBlock"
-                            [disabled]="!cursoForm.form.valid">Crear</button>
-
-                        <ng-template #elseBlock>
-                            <button class="btn btn-primary" role="button" (click)='editarcurso()'
-                                [disabled]="!cursoForm.form.valid">Editar</button>
-                        </ng-template>
-                    </div>
-
-                    
-                </div>
-            </form>
-            -->
         </div>
     </div>
 
