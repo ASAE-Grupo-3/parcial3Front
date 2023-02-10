@@ -1,0 +1,31 @@
+<div class="card text-blue">
+    <div class="card-header ">Consultas Estudiantes</div>
+    <div class="card-body">
+      <h5 class="card-title">Listado de estudiantes</h5>
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-warning mx-2" type="button" (click)="consultar()">
+            consultar
+        </button>  
+        <label for="noIdentificacion" class="col-form-label">nombre asignatura</label>
+        <input type="text" class="btn btn-rounded btn-primary mx-2" name="patron" [(ngModel)]="patron" required>
+        
+      </div>
+      <div *ngIf="asignaturas?.length==0"  class="alert alert-info">
+        No hay registros en la base de datos
+      </div>
+      <table class="table table-bordered table-striped mt-2" *ngIf="asignaturas.length>0">
+        <thead>
+            <tr>
+                <th>id asignatura</th>
+                <th>nombre asignatura</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let asignatura of asignaturas">
+                    <td>{{asignatura.idAsignatura}}</td>
+                    <td>{{asignatura.nombre}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>

@@ -33,6 +33,36 @@ export class estudianteService {
     );
   }
 
+  getestudianteConsulta1(n:number,patron:any): Observable<estudiante[]> {
+    return this.http.get<estudiante[]>(this.urlEndPoint + '/consulta1/'+n+'?palabra=' + patron).pipe(
+      catchError(
+        e => {
+          if (e.status == 400) {
+            return throwError(e);
+          }
+          console.error(e.error.mensaje);
+          swal.fire('Error al consultar estudiante',e.error.mensaje,'error');
+          return throwError(e);
+        }
+      )
+    );
+  }
+
+  getestudianteConsulta2(id:any): Observable<estudiante[]> {
+    return this.http.get<estudiante[]>(this.urlEndPoint + '/consulta2/'+id).pipe(
+      catchError(
+        e => {
+          if (e.status == 400) {
+            return throwError(e);
+          }
+          console.error(e.error.mensaje);
+          swal.fire('Error al consultar estudiante',e.error.mensaje,'error');
+          return throwError(e);
+        }
+      )
+    );
+  }
+
   create(estudiante: estudiante): Observable<estudiante> {
     return this.http
       .post<estudiante>(this.urlEndPoint, estudiante, {

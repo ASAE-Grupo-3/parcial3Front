@@ -23,6 +23,10 @@ export class asignaturaService {
     return this.http.get<Asignatura>(this.urlEndPoint + '/' + id);
   }
 
+  getasignaturaConsulta3(name:any): Observable<Asignatura[]> {
+    return this.http.get<Asignatura[]>(this.urlEndPoint + '/consulta3/' + name);
+  }
+
   create(asignatura: Asignatura): Observable<Asignatura> {
     return this.http
       .post<Asignatura>(this.urlEndPoint, asignatura, {

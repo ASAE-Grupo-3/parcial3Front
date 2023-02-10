@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-query',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./query.component.css']
 })
 export class QueryComponent {
+  constructor(router: Router){
 
+  }
 }

@@ -1,1 +1,12 @@
-<p>query works!</p>
+<div class="card text-blue">
+    <div class="card-header ">Consultas</div>
+    <div class="card-body">
+      <h5 class="card-title">Listado de consultas</h5>
+
+      <div class="list-group">
+        <a [routerLink]="['/consultas/estudiantes', 1]" class="list-group-item list-group-item-action">Buscar Estudiantes Consulta 1</a>
+        <a [routerLink]="['/consultas/estudiantes', 2]" class="list-group-item list-group-item-action">Buscar Estudiantes Consulta 2</a>
+        <a routerLink="/consultas/asignaturas" class="list-group-item list-group-item-action">Buscar Asignatura Consultas</a>
+      </div>
+    </div>
+  </div>
