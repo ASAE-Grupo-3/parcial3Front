@@ -3,8 +3,8 @@
     <div class="card-header">
       <h2 class="text-dark">Telefonos</h2>
       <button class="btn btn-primary" (click)="addTelefono()">Agregar telefono</button>
-    </div>
-
+  </div>
+<!--
     <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value; let i = index">
       <ng-container>
         <div class="form-group row">
@@ -25,16 +25,9 @@
     </div>
   </div>
 </fieldset>
+-->
 
-<!--
-  <fieldset>
-  <div class="telefono card bg-light">
-    <div class="card-header">
-      <h2 class="text-dark">Telefonos</h2>
-      <button class="btn btn-primary" (click)="addTelefono()">Agregar telefono</button>
-    </div>
-
-    <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value;">
+    <div class="card-body" formArrayName="telefonos" *ngFor="let telefono of form.controls['telefonos']?.value;let i = index">
       <ng-container>
         <div class="form-group row">
           <label for="numero" class="col-form-label col-sm-2 text-dark">Número</label>
@@ -74,4 +67,4 @@
     </div>
   </div>
 </fieldset>
--->
+
