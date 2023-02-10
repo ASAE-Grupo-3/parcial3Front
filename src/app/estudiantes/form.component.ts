@@ -58,8 +58,6 @@ export class FormComponent implements OnInit {
   public crearestudiante()
   {
     this.estudiante.fechaIngreso = new Date();
-    console.log(this.estudiante);
-
     this.estudianteService.create(this.estudiante).subscribe(
       respose =>
       {
@@ -74,7 +72,6 @@ export class FormComponent implements OnInit {
              }
 
     )
-
   }
 
   nuevoTelefono(telefonos: telefono[]){
