@@ -37,7 +37,7 @@ const routes: Routes = [
     estudiantesComponent,
     FormComponent,
     docentesComponent,
-    FormDComponent
+    FormDComponent,
 
   ],
   imports: [
