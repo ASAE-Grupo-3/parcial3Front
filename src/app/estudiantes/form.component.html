@@ -11,13 +11,10 @@
       <div class="form-group row">
         <label for="noIdentificacion" class="col-form-label col-sm-2">Número de identificación</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.noIdentificacion" name="noIdentificacion" required minlength="4" maxlength="49" #noIdentificacion="ngModel">
+          <input type="text" class="form-control" [(ngModel)]="estudiante.noIdentificacion" name="noIdentificacion" required #noIdentificacion="ngModel">
           <div class="alert alert-danger" *ngIf="noIdentificacion.invalid && (noIdentificacion.dirty || noIdentificacion.touched)">
             <div *ngIf="noIdentificacion.errors?.['required']">
               Número de identificación es requerido
-            </div>
-            <div *ngIf="noIdentificacion.errors?.['minlength'] || noIdentificacion.errors?.['maxlength']">
-              Número de identificación debe tener entre 4 y 50 caracteres
             </div>
           </div>
         </div>
@@ -26,13 +23,10 @@
       <div class="form-group row">
         <label for="tipoIdentificacion" class="col-form-label col-sm-2">Tipo de identificación</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="estudiante.tipoIdentificacion" required minlength="4" maxlength="49" name="tipoIdentificacion" #tipoIdentificacion="ngModel">
+          <input type="text" class="form-control" [(ngModel)]="estudiante.tipoIdentificacion" required name="tipoIdentificacion" #tipoIdentificacion="ngModel">
           <div class="alert alert-danger" *ngIf="tipoIdentificacion.invalid && (tipoIdentificacion.dirty || tipoIdentificacion.touched)">
             <div *ngIf="tipoIdentificacion.errors?.['required']">
               Tipo de identificación es requerido
-            </div>
-            <div *ngIf="tipoIdentificacion.errors?.['minlength'] || tipoIdentificacion.errors?.['maxlength']">
-              Tipo de identificación debe tener entre 4 y 50 caracteres
             </div>
           </div>
         </div>
@@ -47,7 +41,7 @@
               Nombre es requerido
             </div>
             <div *ngIf="name.errors?.['minlength'] || name.errors?.['maxlength']">
-              Nombre debe tener entre 4 y 50 caracteres
+              Nombre debe tener entre 4 y 49 caracteres
             </div>
           </div>
         </div>
@@ -62,7 +56,7 @@
               Apellido es requerido
             </div>
             <div *ngIf="lastName.errors?.['minlength'] || lastName.errors?.['maxlength']">
-              Apellido debe tener entre 4 y 50 caracteres
+              Apellido debe tener entre 4 y 49 caracteres
             </div>
           </div>
         </div>
