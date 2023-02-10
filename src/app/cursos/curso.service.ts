@@ -4,28 +4,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
-import { Asignatura } from './asignatura';
+import { Curso } from './curso';
 
 @Injectable({
   providedIn: 'root'
 })
-export class asignaturaService {
-  private urlEndPoint: string = 'http://localhost:9090/api/asignaturas';
+export class CursoService {
+  private urlEndPoint: string = 'http://localhost:9090/api/cursos';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-
   constructor(private http: HttpClient) {}
 
-  getasignaturas(): Observable<Asignatura[]> {
-    return this.http.get<Asignatura[]>(this.urlEndPoint);
+  getCurso(): Observable<Curso[]> {
+    return this.http.get<Curso[]>(this.urlEndPoint);
   }
 
-  getasignatura(id: number): Observable<Asignatura> {
-    return this.http.get<Asignatura>(this.urlEndPoint + '/' + id);
+  getcurso(id: number): Observable<Curso> {
+    return this.http.get<Curso>(this.urlEndPoint + '/' + id);
   }
 
-  create(asignatura: Asignatura): Observable<Asignatura> {
+  create(curso: Curso): Observable<Curso> {
     return this.http
-      .post<Asignatura>(this.urlEndPoint, asignatura, {
+      .post<Curso>(this.urlEndPoint, curso, {
         headers: this.httpHeaders,
       })
       .pipe(
@@ -34,15 +33,15 @@ export class asignaturaService {
             return throwError(e);
           }
           console.log(e.error.mensaje);
-          swal.fire('Error al crear el asignatura', e.error.mensaje, 'error');
+          swal.fire('Error al crear el curso', e.error.mensaje, 'error');
           return throwError(e);
         })
       );
   }
 
-  edit(id: number, asignatura: Asignatura): Observable<Asignatura> {
-    console.log(this.urlEndPoint + id, asignatura);
-    return this.http.put<Asignatura>(this.urlEndPoint + '/' + id, asignatura, {
+  edit(id: number, curso: Curso): Observable<Curso> {
+    console.log(this.urlEndPoint + id, curso);
+    return this.http.put<Curso>(this.urlEndPoint + '/' + id, curso, {
       headers: this.httpHeaders,
     }).pipe(
       catchError((e) => {
@@ -50,7 +49,7 @@ export class asignaturaService {
           return throwError(e);
         }
         console.log(e.error.mensaje);
-        swal.fire('Error al crear el asignatura', e.error.mensaje, 'error');
+        swal.fire('Error al crear el curso', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
