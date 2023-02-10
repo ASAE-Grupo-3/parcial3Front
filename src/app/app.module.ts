@@ -23,6 +23,7 @@ import { TelefonosComponent } from './telefonos/telefonos.component';
 import { FormComponentDirecciones } from './direcciones/form.component';
 import { FormComponentTelefonos } from './telefonos/form.component';
 import { asignaturaService } from './Asignaturas/asignatura.service';
+import { QueryComponent } from './query/query.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/docentes', pathMatch: 'full'},
@@ -34,6 +35,7 @@ const routes: Routes = [
     {path: 'docentes', component: docentesComponent},
     {path: 'cursos', component: CursosComponent},
     {path: 'cursos/form', component: FormCursoComponent},
+    {path: 'consultas', component: QueryComponent},
   ];
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ const routes: Routes = [
     FormDComponent,
     CursosComponent,
     FormCursoComponent,
-    docentesComponent
+    docentesComponent,
+    QueryComponent
   ],
   imports: [
     BrowserModule,
