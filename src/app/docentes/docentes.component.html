@@ -37,7 +37,11 @@
           <td>{{docente.universidad}}</td>
           <td>{{docente.tipoDocente}}</td>
           <td>{{docente.salario}}</td>
-          <td>{{docente.asignaturas}}</td>
+          <td>
+            <ol *ngFor="let asignatura of docente.asignaturas">
+              <ul>{{asignatura.nombre}}</ul>
+            </ol>
+          </td>
 
           <td>
             <button style="margin: 10px;" name="button" class="btn btn-warning" [routerLink]="['/docentes/form', docente.idPersona]">

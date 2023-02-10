@@ -1,3 +1,5 @@
+import { asignaturas } from "../Asignaturas/asignatura";
+
 export class docente {
 	idPersona!: number;
 	noIdentificacion!: string;
@@ -7,5 +9,5 @@ export class docente {
 	universidad!: string;
 	tipoDocente!: string;
 	salario!: number;
-	asignaturas!: [];
+	asignaturas!: asignaturas [];
 }
