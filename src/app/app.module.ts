@@ -11,8 +11,6 @@ import { estudiantesComponent } from './estudiantes/estudiantes.component';
 import { estudianteService } from './estudiantes/estudiante.service';
 import { docentesComponent } from './docentes/docentes.component';
 import { docenteService } from './docentes/docente.service';
-
-
 import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './estudiantes/form.component';
@@ -22,6 +20,7 @@ import { DireccionesComponent } from './direcciones/direcciones.component';
 import { TelefonosComponent } from './telefonos/telefonos.component';
 import { FormComponentDirecciones } from './direcciones/form.component';
 import { FormComponentTelefonos } from './telefonos/form.component';
+import { asignaturaService } from './Asignaturas/asignatura.service';
 
 const routes: Routes = [
     {path: '', redirectTo: '/estudiantes', pathMatch: 'full'},
@@ -45,7 +44,7 @@ const routes: Routes = [
     FormComponentDirecciones,
     FormComponentTelefonos,
     FormDComponent,
-
+    docentesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +52,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [estudianteService,docenteService],
+  providers: [estudianteService,docenteService,asignaturaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

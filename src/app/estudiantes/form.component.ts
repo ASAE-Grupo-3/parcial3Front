@@ -72,7 +72,6 @@ export class FormComponent implements OnInit {
              }
 
     )
-
   }
 
   nuevoTelefono(telefonos: telefono[]){

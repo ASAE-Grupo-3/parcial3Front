@@ -38,9 +38,7 @@
           <td>{{docente.tipoDocente}}</td>
           <td>{{docente.salario}}</td>
           <td>
-            <ol *ngFor="let asignatura of docente.asignaturas">
-              <ul>{{asignatura.nombre}}</ul>
-            </ol>
+            <p *ngFor="let asignatura of docente.asignaturas">{{asignatura.nombre}}</p>
           </td>
 
           <td>
