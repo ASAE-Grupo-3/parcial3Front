@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
+import { direccion } from '../direcciones/direccion';
 
 @Injectable()
 export class estudianteService {

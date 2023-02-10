@@ -2,29 +2,13 @@
   <div class="form-group row">
     <label for="calle" class="col-form-label col-sm-2">Calle</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" [(ngModel)]="direccion.calle" #calle="ngModel" required minlength="6" maxlength="24">
-      <div class="alert alert-danger" *ngIf="calle.invalid && (calle.dirty || calle.touched)">
-        <div *ngIf="calle.errors?.['required']">
-          Calle es requerido
-        </div>
-        <div *ngIf="calle.errors?.['minlength'] || calle.errors?.['maxlength']">
-          Calle debe tener entre 6 y 24 caracteres
-        </div>
-      </div>
+      <input type="text" class="form-control" [(ngModel)]="direccion.calle" name="calle" #calle="ngModel">
     </div>
   </div>
   <div class="form-group row">
     <label for="localidad" class="col-form-label col-sm-2">Localidad</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" [(ngModel)]="direccion.localidad" name="localidad" #localidad="ngModel" required minlength="4" maxlength="50">
-      <div class="alert alert-danger" *ngIf="localidad.invalid && (localidad.dirty || localidad.touched)">
-        <div *ngIf="localidad.errors?.['required']">
-          Localidad es requerido
-        </div>
-        <div *ngIf="localidad.errors?.['minlength'] || localidad.errors?.['maxlength']">
-          Localidad debe tener entre 4 y 50 caracteres
-        </div>
-      </div>
+      <input type="text" class="form-control" [(ngModel)]="direccion.localidad" name="localidad" #localidad="ngModel">
     </div>
   </div>
 </fieldset>

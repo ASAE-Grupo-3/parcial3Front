@@ -1,5 +1,5 @@
 import { Component,EventEmitter,Input,OnInit, Output } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors, Validators} from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import { telefono } from './telefono';
 
 @Component({
@@ -39,17 +39,6 @@ export class FormComponentTelefonos implements OnInit {
       tipo: telefono?.tipo,
       idTelefono: telefono?.idTelefono
     }));
-  }
-
-  hayNumeroDuplicado() {
-      const telefonos = this.form.get("telefonos")?.value;
-      const numeros = telefonos.map((telefono: telefono) => telefono.numero?.trim());
-      const hasDuplicate = numeros.some((name: any, index: any) => numeros.indexOf(name, index + 1) != -1);
-
-      if (hasDuplicate) {
-        return { duplicate: true };
-      }
-      return null;
   }
 
   saveChanges() {
