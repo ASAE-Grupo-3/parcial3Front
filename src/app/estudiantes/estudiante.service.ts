@@ -51,7 +51,6 @@ export class estudianteService {
   }
 
   edit(id: number, estudiante: estudiante): Observable<estudiante> {
-    console.log(this.urlEndPoint + id, estudiante);
     return this.http.put<estudiante>(this.urlEndPoint + '/' + id, estudiante, {
       headers: this.httpHeaders,
     }).pipe(
