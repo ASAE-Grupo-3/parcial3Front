@@ -13,6 +13,11 @@ import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './estudiantes/form.component';
 import { FormsModule } from '@angular/forms';
+import { DireccionesComponent } from './direcciones/direcciones.component';
+import { TelefonosComponent } from './telefonos/telefonos.component';
+import { FormComponentDirecciones } from './direcciones/form.component';
+import { FormComponentTelefonos } from './telefonos/form.component';
+
 const routes: Routes = [
     {path: '', redirectTo: '/estudiantes', pathMatch: 'full'},
     {path: 'directivas', component: DirectivaComponent},
@@ -28,7 +33,11 @@ const routes: Routes = [
     FooterComponent,
     DirectivaComponent,
     estudiantesComponent,
-    FormComponent
+    FormComponent,
+    DireccionesComponent,
+    TelefonosComponent,
+    FormComponentDirecciones,
+    FormComponentTelefonos
   ],
   imports: [
     BrowserModule,

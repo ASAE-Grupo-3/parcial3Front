@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { estudiante } from './estudiante';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
+import { direccion } from '../direcciones/direccion';
 
 @Injectable()
 export class estudianteService {
@@ -18,7 +19,18 @@ export class estudianteService {
   }
 
   getestudiante(id: number): Observable<estudiante> {
-    return this.http.get<estudiante>(this.urlEndPoint + '/' + id);
+    return this.http.get<estudiante>(this.urlEndPoint + '/' + id).pipe(
+      catchError(
+        e => {
+          if (e.status == 400) {
+            return throwError(e);
+          }
+          console.error(e.error.mensaje);
+          swal.fire('Error al consultar estudiante',e.error.mensaje,'error');
+          return throwError(e);
+        }
+      )
+    );
   }
 
   create(estudiante: estudiante): Observable<estudiante> {

@@ -1,3 +1,6 @@
+import { direccion } from '../direcciones/direccion';
+import { telefono } from '../telefonos/telefono';
+
 export class estudiante {
 	idPersona!: number;
 	noIdentificacion!: string;
@@ -6,6 +9,11 @@ export class estudiante {
 	apellidos!: string;
 	fechaIngreso!: Date;
 	correo!: string;
-	objDireccion!: [];
-	telefonos!: [];
+	objDireccion!: direccion;
+	telefonos!: telefono[];
+
+  constructor(){
+    this.objDireccion = new direccion();
+    this.telefonos = [];
+ }
 }
