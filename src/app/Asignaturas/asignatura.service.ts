@@ -10,7 +10,7 @@ import { Asignatura } from './asignatura';
   providedIn: 'root'
 })
 export class asignaturaService {
-  private urlEndPoint: string = 'http://localhost:9090/api/asignaturas';
+  private urlEndPoint: string = 'http://localhost:5000/api/asignaturas';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}
